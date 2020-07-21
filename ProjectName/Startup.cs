@@ -37,5 +37,6 @@ namespace ProjectName
       {
         await context.Response.WriteAsync("Hello World!");
       });
+    }
   }
 }
