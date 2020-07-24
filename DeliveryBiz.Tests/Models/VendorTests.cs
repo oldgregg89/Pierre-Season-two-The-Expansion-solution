@@ -57,5 +57,17 @@ namespace DeliveryBiz
       Vendor results = Vendor.Find(2);
       Assert.AreEqual(newVendor2, results);
     }
+    [TestMethod]
+    public void AddOrder_AssociatesOrderWithVendor_OrderList()
+    {
+      string description = "Ordered 30 chocolate tacos";
+      Order newOrder = new Order(description);
+      List<Order> newList = new List<Order> {newOrder};
+      string name = "Eats & Treats";
+      Vendor newVendor = new Vendor(name);
+      newVendor.AddOrder(newOrder);
+      List<Order> result = newVendor.Order;
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
