@@ -6,7 +6,7 @@ namespace DeliveryBiz.Controllers
 {
   public class OrderController : Controller
   {
-    [HttpGet("/vendor/{vendorId}/Order/new")]
+    [HttpGet("/vendor/{vendorId}/order/new")]
     public ActionResult New(int vendorId)
     {
       Vendor vendor = Vendor.Find(vendorId);

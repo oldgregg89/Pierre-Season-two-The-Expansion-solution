@@ -31,7 +31,6 @@ __
 | Adding vendor orders | `click` vender and add order | displayed vendor order |
 
 
-
 ## Known Bugs
 
 _No known bugs_
