@@ -8,10 +8,10 @@ namespace DeliveryBiz
   [TestClass]
   public class OrderTest 
   {
-    // public void Remove()
-    // {
-    //   Orders.ClearAll();
-    // }
+    public void Remove()
+    {
+      Order.ClearAll();
+    }
     [TestMethod]
     public void OrderConstructor_CreatesInstenceOfOrder_Vendor()
     {

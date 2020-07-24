@@ -8,10 +8,10 @@ namespace DeliveryBiz
   [TestClass]
   public class VendorTest 
   {
-    // public void Remove()
-    // {
-    //   Vendors.ClearAll();
-    // }
+    public void Remove()
+    {
+      Vendor.ClearAll();
+    }
     [TestMethod]
     public void VendorConstructor_CreatesInstenceOfVendors_Vendor()
     {
