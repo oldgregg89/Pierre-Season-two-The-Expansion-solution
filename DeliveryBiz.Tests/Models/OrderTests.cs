@@ -36,5 +36,12 @@ namespace DeliveryBiz
       string result = newOrder.Description;
       Assert.AreEqual(updateDescription, result);
     }
+    [TestMethod]
+    public void GetAll_ReturnEmptyList_OrderList()
+    {
+      List<Order> newList = new List<Order> {};
+      List<Order> result = Order.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
