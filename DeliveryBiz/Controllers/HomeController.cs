@@ -5,10 +5,10 @@ namespace DeliveryBiz.Controllers
 {
   public class HomeController : Controller
   {
-    [Route("/hello")]
-    public string Hello() { return "Hello!"; }
-
-    [Route("/form")]
-    public ActionResult Form() { return View(); }
+    [HttpGet("/")]
+    public ActionResult Index()
+    {
+      return View();
+    }
   }
 }
