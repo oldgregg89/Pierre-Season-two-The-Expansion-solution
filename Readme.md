@@ -1,24 +1,25 @@
-# _new template_
+# _Pierre-Season-2-The-Expansion_
 
-#### _{Brief description of application}, 2020 ver 1.0_
+#### _Pierre was so pleased with your console app for his bakery that he wants to hire you for a new project. An application to keep track of delivieries. You explained, "No this might be too aggressive with such a lower margin of profit.", he replied, "Damn the rules and MAKE ME MY DELIVERY TRACKER!". , 2020 ver 1.0_
 
-#### By _Ian Gregg & (Co author)_
-[new-template-for-code-C]()
+#### By _Ian Gregg_
+[Pierre-Season-two-The-Expansion]()
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_Pierre was so pleased with your console app for his bakery that he wants to hire you for a new project. An application to keep track of delivieries. You explained, "No this might be too aggressive with such a lower margin of profit.", he replied, "Damn the rules and MAKE ME MY DELIVERY TRACKER!" In all seriousness this is an application to demonstrate the proficiency with using all skills I learned this week such as MVC applications, Razor, Objects within Objects, using static content, CRUD meathods, & RESTFUL Routing._
 
 ## Setup/Installation Requirements
 
-* to clone this content, copy the url provided by the 'clone or download' button in GitHub
+* to clone this content, copy the url provided by the `clone or download` button in GitHub
 * in command line use the command 'git clone (GitHub url)'
 * open the program in a code editor
 * you will need [.NET] (https://dotnet.microsoft.com/download/dotnet-core/2.2) installed to run this program 
-* then install dotnet script REPL by typing 'dotnet tool installl -g dotnet-script' in the command line
+* then install dotnet script REPL by typing `dotnet tool installl -g dotnet-script` in the command line
 * type dotnet build in the command line to compile the code
-* create a .gitignore file and store the bin and obj folders in .gitignore
-* type dotnet run in the command line to run the program
+* create a `.gitignore` file and store the bin and obj folders in .gitignore
+* type `dotnet watch run` in the command line to run the program
+
 
 __
 
@@ -26,10 +27,9 @@ __
 
 | Behavior    | Input | Output |
 | :---------- | ----- | -----: |
-| behavior 1 |  |  |
-| behavior 2 |  |  |
-| behavior 3 |  |  |
-| behavior 4 |  |  |
+| Adding a vendor | `click` on vendor Add | displayed Vendor added |
+| Adding vendor orders | `click` vender and add order | displayed vendor order |
+
 
 
 ## Known Bugs
