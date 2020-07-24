@@ -53,5 +53,13 @@ namespace DeliveryBiz
       Order result = Order.Find(2);
       Assert.AreEqual(newOrder2, result);
     }
+    [TestMethod]
+    public void GetId_OrderInstantiateWithAnIdAndGetReturns_Int()
+    {
+      string description = "They Ordered 200 bagels";
+      Order newOrder = new Order(description);
+      int result = newOrder.Id;
+      Assert.AreEqual(1, result);
+    }
   }
 }
