@@ -19,11 +19,31 @@ namespace DeliveryBiz.Controllers
       return View();
     }
     [HttpPost("/vendor")]
-    public ActionResult Create(string vendorName);
+    public ActionResult Create(string vendorName)
     {
       Vendor newVendor = new Vendor(vendorName);
       return RedirectToAction("Index");
-
+    }
+    [HttpGet("/vendor/{Id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor selectedVendor = Vendor.Find(id);
+      List<Order> vendorOrder = selectedVendor.Order;
+      model.Add("vendor",selectedVendor);
+      model.Add("order",vendorOrder);
+      return View(model);
+    }
+    [HttpPost("/vendor/{vendorId}/order")]
+    public ActionResult Create(int vendorId, string OrderDescription)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(OrderDescription);
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrder = foundVendor.Order;
+      model.Add("order", vendorOrder);
+      return View("Show", model);
     }
   }
 }
