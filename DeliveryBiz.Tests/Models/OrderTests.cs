@@ -43,5 +43,15 @@ namespace DeliveryBiz
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void Find_ReturnCorrectOrder_Order()
+    {
+      string description1 = "They Ordered 200 bagels";
+      string description2 = "Ordered 30 chocolate tacos";
+      Order newOrder1 = new Order(description1);
+      Order newOrder2 = new Order(description2);
+      Order result = Order.Find(2);
+      Assert.AreEqual(newOrder2, result);
+    }
   }
 }
