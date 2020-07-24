@@ -8,7 +8,7 @@ namespace DeliveryBiz
   [TestClass]
   public class VendorTest : IDisposable
   {
-    public void Remove()
+    public void Dispose()
     {
       Vendor.ClearAll();
     }
@@ -44,7 +44,7 @@ namespace DeliveryBiz
       Vendor newVendor1 = new Vendor(name1);
       Vendor newVendor2 = new Vendor(name2);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2};
-      List<Vendor> result = new Vendor.GetAll();
+      List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
   }
