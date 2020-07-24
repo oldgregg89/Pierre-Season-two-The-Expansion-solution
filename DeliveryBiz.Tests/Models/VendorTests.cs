@@ -6,7 +6,7 @@ using System;
 namespace DeliveryBiz
 {
   [TestClass]
-  public class VendorTest 
+  public class VendorTest : IDisposable
   {
     public void Remove()
     {
@@ -25,6 +25,16 @@ namespace DeliveryBiz
       Vendor newVendor = new Vendor(name);
       string result = newVendor.Name;
       Assert.AreEqual(name, result);
+    }
+    
+
+    [TestMethod]
+    public void GetId_ReturnVendorId_Int()
+    {
+      string name = "Papa Haydn";
+      Vendor newVendor = new Vendor(name);
+      int result = newVendor.Id;
+      Assert.AreEqual(1, result);
     }
     [TestMethod]
     public void GetAll_ReturnsAllVendorObjects_VendorList()
