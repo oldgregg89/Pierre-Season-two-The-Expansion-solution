@@ -18,5 +18,6 @@ namespace DeliveryBiz
       Vendor newVendor = new Vendor ("test Vendor");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
+    
   }
 }
