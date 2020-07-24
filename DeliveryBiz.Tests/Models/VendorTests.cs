@@ -47,5 +47,15 @@ namespace DeliveryBiz
       List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      string name1 = "Papa Haydn";
+      string name2 = "Eats & Treats";
+      Vendor newVendor1 = new Vendor(name1);
+      Vendor newVendor2 = new Vendor(name2);
+      Vendor results = Vendor.Find(2);
+      Assert.AreEqual(newVendor2, results);
+    }
   }
 }
