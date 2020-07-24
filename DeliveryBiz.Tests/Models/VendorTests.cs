@@ -6,16 +6,16 @@ using System;
 namespace DeliveryBiz
 {
   [TestClass]
-  public class VendorTest : IDisposable
+  public class VendorTest 
   {
-    public void Remove()
-    {
-      Vendors.ClearAll();
-    }
+    // public void Remove()
+    // {
+    //   Vendors.ClearAll();
+    // }
     [TestMethod]
     public void VendorConstructor_CreatesInstenceOfVendors_Vendor()
     {
-      Vendor newVendors = new Vendor ("test Vendor");
+      Vendor newVendor = new Vendor ("test Vendor");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
   }
