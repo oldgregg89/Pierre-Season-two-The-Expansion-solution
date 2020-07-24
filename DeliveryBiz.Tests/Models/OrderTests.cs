@@ -3,12 +3,12 @@ using DeliveryBiz.Models;
 using System.Collections.Generic;
 using System;
 
-namespace DeliveryBiz
+namespace DeliveryBiz 
 {
   [TestClass]
-  public class OrderTest 
+  public class OrderTest : IDisposable
   {
-    public void Remove()
+    public void Dispose()
     {
       Order.ClearAll();
     }
