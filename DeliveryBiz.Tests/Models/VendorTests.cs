@@ -26,5 +26,16 @@ namespace DeliveryBiz
       string result = newVendor.Name;
       Assert.AreEqual(name, result);
     }
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
+    {
+      string name1 = "Papa Haydn";
+      string name2 = "Eats & Treats";
+      Vendor newVendor1 = new Vendor(name1);
+      Vendor newVendor2 = new Vendor(name2);
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2};
+      List<Vendor> result = new Vendor.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
