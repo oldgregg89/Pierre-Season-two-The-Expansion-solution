@@ -26,5 +26,15 @@ namespace DeliveryBiz
       string result = newOrder.Description;
       Assert.AreEqual(discription, result);
     }
+    [TestMethod]
+    public void SetDescription_SetDescription_String()
+    {
+      string description = "They Ordered 200 bagels";
+      Order newOrder = new Order(description);
+      string updateDescription = "They changed their order to 150 bagels";
+      newOrder.Description = updateDescription;
+      string result = newOrder.Description;
+      Assert.AreEqual(updateDescription, result);
+    }
   }
 }
