@@ -5,43 +5,43 @@ using DeliveryBiz.Models;
 
 namespace DeliveryBiz.Controllers
 {
-  public class VendorController : Controller
+  public class VendorsController : Controller
   {
-    [HttpGet("/vendor")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
       List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
     }
-    [HttpGet("/vendor/new")]
+    [HttpGet("/vendors/new")]
     public ActionResult New()
     {
       return View();
     }
-    [HttpPost("/vendor")]
+    [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
     {
       Vendor newVendor = new Vendor(vendorName);
       return RedirectToAction("Index");
     }
-    [HttpGet("/vendor/{Id}")]
+    [HttpGet("/vendors/{Id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
-      List<Order> vendorOrder = selectedVendor.Order;
+      List<Order> vendorOrder = selectedVendor.Orders;
       model.Add("vendor",selectedVendor);
-      model.Add("order",vendorOrder);
+      model.Add("order",new List<Order>());
       return View(model);
     }
-    [HttpPost("/vendor/{vendorId}/order")]
+    [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string orderDescription)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(orderDescription);
       foundVendor.AddOrder(newOrder);
-      List<Order> vendorOrder = foundVendor.Order;
+      List<Order> vendorOrder = foundVendor.Orders;
       model.Add("order", vendorOrder);
       model.Add("vendor", foundVendor);
       return View("Show", model);

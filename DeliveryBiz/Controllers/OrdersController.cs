@@ -4,28 +4,33 @@ using System.Collections.Generic;
 
 namespace DeliveryBiz.Controllers
 {
-  public class OrderController : Controller
+  public class OrdersController : Controller
   {
-    [HttpGet("/vendor/{vendorId}/order/new")]
+    [HttpPost("/orders")]
+    public ActionResult Index(string description)
+    {
+      Order newOrder = new Order(description);
+      Vendor vendor = Vendor.Find(0);
+      vendor.AddOrder(newOrder);
+      return View();
+    }
+    [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
       Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
     }
-    [HttpGet("/vendor/{vendorId}/order/{orderId}")]
+    [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
     public ActionResult Show(int vendorId, int orderId)
     {
-      Order order = Order.Find(orderId);
       Vendor vendor = Vendor.Find(vendorId);
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("order", order);
-      model.Add("vendor", vendor);
+      model.Add("vendors", vendor);
       return View(model);
     }
-    [HttpPost("/order/delete")]
-    public ActionResult DeletAll()
+    [HttpPost("/orders/delete")]
+    public ActionResult DeleteAll()
     {
-      Order.ClearAll();
       return View();
     }
   }

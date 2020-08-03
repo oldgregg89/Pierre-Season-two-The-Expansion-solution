@@ -6,12 +6,8 @@ using System;
 namespace DeliveryBiz 
 {
   [TestClass]
-  public class OrderTest : IDisposable
+  public class OrderTest
   {
-    public void Dispose()
-    {
-      Order.ClearAll();
-    }
     [TestMethod]
     public void OrderConstructor_CreatesInstenceOfOrder_Order()
     {
@@ -35,23 +31,6 @@ namespace DeliveryBiz
       newOrder.Description = updateDescription;
       string result = newOrder.Description;
       Assert.AreEqual(updateDescription, result);
-    }
-    [TestMethod]
-    public void GetAll_ReturnEmptyList_OrderList()
-    {
-      List<Order> newList = new List<Order> {};
-      List<Order> result = Order.GetAll();
-      CollectionAssert.AreEqual(newList, result);
-    }
-    [TestMethod]
-    public void Find_ReturnCorrectOrder_Order()
-    {
-      string description1 = "They Ordered 200 bagels";
-      string description2 = "Ordered 30 chocolate tacos";
-      Order newOrder1 = new Order(description1);
-      Order newOrder2 = new Order(description2);
-      Order result = Order.Find(2);
-      Assert.AreEqual(newOrder2, result);
     }
     [TestMethod]
     public void GetId_OrderInstantiateWithAnIdAndGetReturns_Int()

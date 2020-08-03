@@ -66,7 +66,7 @@ namespace DeliveryBiz
       string name = "Eats & Treats";
       Vendor newVendor = new Vendor(name);
       newVendor.AddOrder(newOrder);
-      List<Order> result = newVendor.Order;
+      List<Order> result = newVendor.Orders;
       CollectionAssert.AreEqual(newList, result);
     }
   }

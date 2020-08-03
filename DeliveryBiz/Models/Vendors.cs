@@ -7,14 +7,13 @@ namespace DeliveryBiz.Models
     private static List<Vendor> _instances = new List<Vendor> {};
     public string Name { get; set; }
     public int Id { get; }
-    public List<Order> Order { get; set; }
+    public List<Order> Orders { get; set; } = new List<Order> {};
   
     public Vendor(string vendorName)
     {
       Name = vendorName;
-      _instances.Add(this);
       Id = _instances.Count;
-      Order = new List<Order>{};
+      _instances.Add(this);
     }
     public static void ClearAll()
     {
@@ -26,11 +25,11 @@ namespace DeliveryBiz.Models
     }
     public static Vendor Find(int searchId)
     {
-      return _instances[searchId-1];
+      return _instances[searchId];
     }
     public void AddOrder(Order order)
     {
-      Order.Add(order);
+      Orders.Add(order);
     }
   }
 }
