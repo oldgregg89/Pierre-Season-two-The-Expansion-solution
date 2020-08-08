@@ -2,11 +2,21 @@
 
 <h3>Here are all the current orders for this Vendor</h3>
 
-<ol>
-@* @foreach (Order order in @Model["order"])
+@if (@Model["vendor"].Orders.Count == 0)
 {
-  <li><a href='/vendors/@Model["vendor"].id/orders/@order.Id'>@order.Description</a></li>
-} *@
+  <h2>No Orders have been made, Go Out there and talk with them! </h2>
+}
+
+<ol>
+  @foreach (Order order in @Model["order"])
+  {
+    <li>
+      <a href ='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a><br>
+      <ul>
+        <li>@order.Description</li>
+      </ul>
+    </li>
+  }
 </ol>
 
 <p><a href="/vendors/@Model["vendor"].Id/orders/new">Add a new order</a></p>

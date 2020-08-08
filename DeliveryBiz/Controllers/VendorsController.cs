@@ -16,7 +16,7 @@ namespace DeliveryBiz.Controllers
     [HttpGet("/vendors/new")]
     public ActionResult New()
     {
-      return View();
+      return View("new");
     }
     [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
@@ -31,15 +31,15 @@ namespace DeliveryBiz.Controllers
       Vendor selectedVendor = Vendor.Find(id);
       List<Order> vendorOrder = selectedVendor.Orders;
       model.Add("vendor",selectedVendor);
-      model.Add("order",new List<Order>());
+      model.Add("order",vendorOrder);
       return View(model);
     }
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderDescription)
+    public ActionResult Create(int vendorId, string title, string price, string description, string date)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(orderDescription);
+      Order newOrder = new Order(title, price, description, date);
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrder = foundVendor.Orders;
       model.Add("order", vendorOrder);

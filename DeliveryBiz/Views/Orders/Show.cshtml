@@ -1,0 +1,18 @@
+@using DeliveryBiz.Models;
+
+<h1>@Model["vendor"].Name</h1>
+
+<h3>Order:</h3>
+
+@if (@Model["vendor"].Orders.Count == 0)
+{
+  <h3>No Orders have been made, Go Out there and earn their business!</h3>
+}
+
+<h3>Title: @Model["order"].Title</h3>
+<h3>Description: @Model["order"].Description</h3>
+<h3>Price: $@Model["order"].Price</h3>
+<h3>Date Ordered: @Model["order"].Date</h3>
+
+<p><a href="/">return to Home page</a></p>
+

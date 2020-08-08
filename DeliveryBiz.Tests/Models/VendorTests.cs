@@ -61,7 +61,7 @@ namespace DeliveryBiz
     public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
       string description = "Ordered 30 chocolate tacos";
-      Order newOrder = new Order(description);
+      Order newOrder = new Order("test", "test", description, "test");
       List<Order> newList = new List<Order> {newOrder};
       string name = "Eats & Treats";
       Vendor newVendor = new Vendor(name);
